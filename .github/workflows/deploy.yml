@@ -32,7 +32,7 @@ jobs:
         run: "npm install"
 
       - name: Build step
-        run: "cross-env NODE_ENV=production webpack --progress --colors --config webpack.config.prod.js -p --display-error-details"
+        run: "webpack-dev-server --devtool eval --progress --colors --content-base dist --hot --inline --display-error-details --port 4040"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
@@ -40,5 +40,5 @@ jobs:
           project: "irwansetiaw-websocket-d-93"
           entrypoint: "/"
           root: "/"
-          include: /
+          
           
